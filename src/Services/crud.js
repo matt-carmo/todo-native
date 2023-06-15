@@ -1,86 +1,101 @@
 import api from "./api"
 
-const ConsomeApi={
+const ConsomeApi = {
+    async criarTarefa(tarefa) {
 
-    async criarTarefa(tarefa) {
+        try {
 
-        try {
+            const response = await api.post('/tasks', tarefa);
 
-            const response = await api.post('/tasks',tarefa);
+            return response.data;
 
-            return response.data;
+        } catch (error) {
 
-        } catch (error) {
+            throw error;
 
-            throw error;
+        }
 
-        }
+    },
 
-    },
+    async listarTarefas() {
+       
+        try {
 
-    async listarTarefas() {
+            const response = await api.get('/tarefas');
+            
+   
+            return response.data
 
-        try {
+        } catch (error) {
+            console.log(error)
+            throw error;
 
-            const response = await api.get('/usuarios');
+        }
 
-            return response.data;
+    },
 
-        } catch (error) {
+    async alterarTarefa(tarefa, id) {
 
-            throw error;
+        try {
 
-        }
+            const response = await api.put(`/tarefas/${id}`, tarefa);
 
-    },
+            return response.data;
 
-    async alterarTarefa(tarefa,id) {
+        } catch (error) {
 
-        try {
+            throw error;
 
-            const response = await api.put(`/tarefas/${id}`,tarefa);
+        }
 
-            return response.data;
+    },
 
-        } catch (error) {
+    async exibirTarefa(tarefa) {
 
-            throw error;
+        try {
 
-        }
+            const response = await api.get(`/tarefas/${id}`, tarefa);
 
-    },
+            return response.data;
 
-    async exibirTarefa(tarefa) {
+        } catch (error) {
 
-        try {
+            throw error;
 
-            const response = await api.get(`/tarefas/${id}`,tarefa);
+        }
 
-            return response.data;
+    },
 
-        } catch (error) {
+    async deletarTarefa(tarefa) {
 
-            throw error;
+        try {
 
-        }
+            const response = await api.post('/tarefas');
 
-    },
+            return response.data;
 
-    async deletarTarefa(tarefa) {
+        } catch (error) {
 
-        try {
+            throw error;
 
-            const response = await api.post('/tarefas');
+        }
 
-            return response.data;
+    },
+    async criarUsuario(usuario) {
 
-        } catch (error) {
+        try {
 
-            throw error;
+            const response = await api.post('/usuarios', usuario);
+            
+            return response.data;
 
-        }
+        } catch (error) {
 
-    }
+            throw error;
+
+        }
+
+    },
 
 }
 

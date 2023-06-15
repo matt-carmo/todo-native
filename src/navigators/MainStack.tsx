@@ -1,18 +1,24 @@
 
 
 import React from 'react';
-import { Text } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+
+
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import DashBoard from './Dashboard';
+import DashBoard from '../pages/Dashboard';
+import Login from '../pages/Login';
+import SignIn from '../pages/SignIn';
 
 const Stack = createNativeStackNavigator();
 
-export const  MyStack = () => {
+export const MainStack = () => {
   return (
-    <Stack.Navigator>
-
+    <Stack.Navigator
+    initialRouteName='SignIn' ///the name of the initial screen
+    >
+      
       <Stack.Screen name="DashBoard" component={DashBoard} />
+      <Stack.Screen name="Login" component={Login} /> 
+      <Stack.Screen name="SignIn" component={SignIn} />
     </Stack.Navigator>
   );
 }
