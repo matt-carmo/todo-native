@@ -96,6 +96,14 @@ const ConsomeApi = {
         }
 
     },
+    async login(usuario) {
+        try {
+            const response = await api.post('/login',usuario);
+            return response.data;
+        } catch(error) {
+            throw error;
+        }
+    },
 
 }
 

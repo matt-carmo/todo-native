@@ -1,19 +1,19 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import DashBoard from './src/pages/Dashboard';
-import { MainStack } from './src/navigators/MainStack';
-const Stack = createNativeStackNavigator();
-import { Text } from 'react-native';
-function App() {
-  return (
-    <NavigationContainer>
-  
-      <MainStack/>
-     
-    </NavigationContainer>
-   
+import React, { useState, useEffect } from "react";
 
-  );
+import { NavigationContainer } from "@react-navigation/native"
+import {MainStack} from './src/navigators/MainStack'
+
+import { Provider } from 'react-redux';
+import store from "./src/store";
+function App() {
+
+  return (
+    <Provider store={store}>
+      <NavigationContainer>
+        <MainStack />
+      </NavigationContainer>
+    </Provider>
+  )
 }
 
 export default App;
